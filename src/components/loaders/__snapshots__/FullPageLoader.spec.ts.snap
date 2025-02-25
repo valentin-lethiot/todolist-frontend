@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FullPageLoader > render > should render the full page loader 1`] = `
+"<div class="flex justify-center items-center h-screen w-screen">
+  <div style="height: 200px; width: 200px;"><canvas style="height: 100%; width: 100%;"></canvas></div>
+</div>"
+`;

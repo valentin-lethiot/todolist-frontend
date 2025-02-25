@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`BaseModal > render > should render the modal 1`] = `
+"<div id="create-task-modal" class="absolute w-screen h-screen top-0 left-0 bg-gray-900/40 z-50">
+  <div class="w-full h-full flex flex-col justify-center items-center p-8">
+    <div class="bg-gray-800 rounded-lg p-4 shadow-xl w-full max-h-2/3">
+      <div>Modal Content</div>
+    </div>
+  </div>
+</div>"
+`;
+
+exports[`BaseModal > render > should render when isLoading is true 1`] = `
+"<div id="create-task-modal" class="absolute w-screen h-screen top-0 left-0 bg-gray-900/40 z-50">
+  <div class="w-full h-full flex flex-col justify-center items-center p-8">
+    <div class="bg-gray-800 rounded-lg p-4 shadow-xl w-full max-h-2/3">
+      <div class="flex justify-center items-center h-full w-full">
+        <div style="height: 200px; width: 200px;"><canvas style="height: 100%; width: 100%;"></canvas></div>
+      </div>
+    </div>
+  </div>
+</div>"
+`;

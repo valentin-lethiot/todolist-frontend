@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TasksList > render > should render the tasks list 1`] = `
+"<div class="flex flex-col my-1">
+  <div class="rounded-xl w-full p-4 bg-gray-800 border-gray-700">
+    <div class="flex flex-col">
+      <div class="flex justify-between">
+        <p class="w-full md:w-5/6 text-md md:text-lg font-bold text-white break-all">Task 1</p>
+        <div class="hidden md:w-1/6 md:flex md:justify-end md:items-start"><button id="editIcon" class="rounded-full p-2 hover:bg-gray-600 text-md md:text-lg font-bold text-white hover:cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+            </svg></button></div>
+      </div>
+      <p class="text-gray-300">Description 1</p>
+      <div class="flex mt-4 justify-between md:justify-end"><button id="editButton" class="md:hidden rounded p-1.5 bg-gray-900 hover:bg-gray-600 text-sm font-bold text-white hover:cursor-pointer"> Modifier </button><select class="border text-sm rounded-lg p-1 border-gray-60 text-white hover:cursor-pointer bg-red-600" label="Status" value="TODO">
+          <option selected="" class="bg-red-500" value="TODO">A faire</option>
+          <option class="bg-orange-500" value="DOING">En cours</option>
+          <option class="bg-green-500" value="DONE">Terminé</option>
+        </select></div>
+    </div>
+  </div>
+</div>
+<div class="flex flex-col my-1">
+  <div class="rounded-xl w-full p-4 bg-gray-800 border-gray-700">
+    <div class="flex flex-col">
+      <div class="flex justify-between">
+        <p class="w-full md:w-5/6 text-md md:text-lg font-bold text-white break-all">Task 2</p>
+        <div class="hidden md:w-1/6 md:flex md:justify-end md:items-start"><button id="editIcon" class="rounded-full p-2 hover:bg-gray-600 text-md md:text-lg font-bold text-white hover:cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+            </svg></button></div>
+      </div>
+      <p class="text-gray-300">Description 2</p>
+      <div class="flex mt-4 justify-between md:justify-end"><button id="editButton" class="md:hidden rounded p-1.5 bg-gray-900 hover:bg-gray-600 text-sm font-bold text-white hover:cursor-pointer"> Modifier </button><select class="border text-sm rounded-lg p-1 border-gray-60 text-white hover:cursor-pointer bg-orange-600" label="Status" value="DOING">
+          <option selected="" class="bg-red-500" value="TODO">A faire</option>
+          <option class="bg-orange-500" value="DOING">En cours</option>
+          <option class="bg-green-500" value="DONE">Terminé</option>
+        </select></div>
+    </div>
+  </div>
+</div>"
+`;

@@ -50,6 +50,7 @@ const emitClose = () => emit('close')
       <div class="h-1/8 text-xl font-bold flex justify-between items-start">
         <p>Créer une tâche</p>
         <button
+          id="closeCross"
           @click="emitClose"
           class="rounded-full px-2 bg-gray-700 hover:bg-gray-600 text-lg font-bold text-white hover:cursor-pointer"
         >
@@ -64,12 +65,14 @@ const emitClose = () => emit('close')
 
       <div class="h-1/8 w-full flex gap-4 items-center justify-end">
         <button
+          id="cancelButton"
           @click="emitClose"
           class="bg-gray-700 hover:bg-gray-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer"
         >
           Annuler
         </button>
         <button
+          id="validateButton"
           class="bg-green-700 hover:bg-green-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer disabled:bg-green-600/20 hover:disabled:cursor-not-allowed"
           :disabled="isCreateButtonDisabled"
           @click="validateForm"

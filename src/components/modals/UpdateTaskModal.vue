@@ -79,6 +79,7 @@ const closeConfirmationModal = () => (isConfirmationModalOpen.value = false)
       <div class="h-1/8 text-xl font-bold flex justify-between items-start">
         <p>Modifier une tâche</p>
         <button
+          id="closeCross"
           @click="emitClose"
           class="rounded-full px-2 bg-gray-700 hover:bg-gray-600 text-lg font-bold text-white hover:cursor-pointer"
         >
@@ -93,12 +94,14 @@ const closeConfirmationModal = () => (isConfirmationModalOpen.value = false)
 
       <div class="h-1/8 w-full flex gap-4 items-center justify-end">
         <button
+          id="deleteButton"
           @click="showConfirmationModal"
           class="bg-red-700 hover:bg-red-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer"
         >
           Supprimer
         </button>
         <button
+          id="validateButton"
           class="bg-green-700 hover:bg-green-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer disabled:bg-green-600/20 hover:disabled:cursor-not-allowed"
           :disabled="isUpdateButtonDisabled"
           @click="validateForm"

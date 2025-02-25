@@ -21,12 +21,14 @@ const emitConfirm = () => emit('confirm')
 
           <div class="h-1/2 w-full flex gap-4 items-center justify-end">
             <button
+              id="cancelButton"
               @click="emitClose"
               class="bg-gray-700 hover:bg-gray-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer"
             >
               Annuler
             </button>
             <button
+              id="confirmButton"
               class="bg-red-700 hover:bg-red-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer"
               @click="emitConfirm"
             >

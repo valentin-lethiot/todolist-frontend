@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`StateSelect > renders > renders properly with DOING status 1`] = `
+"<select class="border text-sm rounded-lg p-1 border-gray-60 text-white hover:cursor-pointer bg-orange-600" value="DOING">
+  <option selected="" class="bg-red-500" value="TODO">A faire</option>
+  <option class="bg-orange-500" value="DOING">En cours</option>
+  <option class="bg-green-500" value="DONE">Terminé</option>
+</select>"
+`;
+
+exports[`StateSelect > renders > renders properly with DONE status 1`] = `
+"<select class="border text-sm rounded-lg p-1 border-gray-60 text-white hover:cursor-pointer bg-green-600" value="DONE">
+  <option selected="" class="bg-red-500" value="TODO">A faire</option>
+  <option class="bg-orange-500" value="DOING">En cours</option>
+  <option class="bg-green-500" value="DONE">Terminé</option>
+</select>"
+`;
+
+exports[`StateSelect > renders > should renders with TODO status 1`] = `
+"<select class="border text-sm rounded-lg p-1 border-gray-60 text-white hover:cursor-pointer bg-red-600" value="TODO">
+  <option selected="" class="bg-red-500" value="TODO">A faire</option>
+  <option class="bg-orange-500" value="DOING">En cours</option>
+  <option class="bg-green-500" value="DONE">Terminé</option>
+</select>"
+`;

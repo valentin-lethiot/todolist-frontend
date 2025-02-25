@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="absolute right-8 bottom-8">
     <button
