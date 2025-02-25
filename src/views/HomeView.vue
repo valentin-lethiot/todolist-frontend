@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import BaseInput from '@/components/forms/Input.vue'
 import NewTaskButton from '@/components/forms/NewTaskButton.vue'
 import FullPageLoader from '@/components/loaders/FullPageLoader.vue'
 import CreateTaskModal from '@/components/modals/CreateTaskModal.vue'
 import UpdateTaskModal from '@/components/modals/UpdateTaskModal.vue'
-import TaskCard from '@/components/tasks/TaskCard.vue'
 import TasksList from '@/components/tasks/TasksList.vue'
 import Header from '@/components/ui/Header.vue'
 import type { Task } from '@/models/tasks.entity'
@@ -14,7 +12,7 @@ import { onMounted, ref } from 'vue'
 
 const tasksStore = useTasksStore()
 const { tasks } = storeToRefs(tasksStore)
-const { fetchAllTasks, getTaskById } = tasksStore
+const { fetchAllTasks } = tasksStore
 
 const isLoading = ref(false)
 

@@ -17,4 +17,3 @@ L'application sera accessible sur `http://localhost:8080`
 ```bash
 npm run test:unit
 ```
-
