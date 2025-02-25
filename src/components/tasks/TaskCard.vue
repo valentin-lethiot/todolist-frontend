@@ -22,15 +22,15 @@ const updateTaskStatus = (status: TaskStatus) => {
 </script>
 
 <template>
-  <div class="rounded-xl w-100 p-4 bg-gray-800 border-gray-700">
+  <div class="rounded-xl w-full p-4 bg-gray-800 border-gray-700">
     <div class="flex flex-col">
       <div class="flex justify-between">
-        <p class="w-5/6 text-lg font-bold text-white break-all">
+        <p class="w-full md:w-5/6 text-md md:text-lg font-bold text-white break-all">
           {{ task.title }}
         </p>
-        <div>
+        <div class="hidden md:w-1/6 md:flex md:justify-end md:items-start">
           <button
-            class="rounded-full p-2 hover:bg-gray-600 text-lg font-bold text-white hover:cursor-pointer"
+            class="rounded-full p-2 hover:bg-gray-600 text-md md:text-lg font-bold text-white hover:cursor-pointer"
             @click="emitEditTask"
           >
             <EditIcon />
@@ -40,7 +40,14 @@ const updateTaskStatus = (status: TaskStatus) => {
       <p class="text-gray-300">
         {{ task.description }}
       </p>
-      <div class="flex mt-2 justify-end">
+      <div class="flex mt-2 justify-between md:justify-end">
+        <button
+          class="md:hidden rounded p-1.5 bg-gray-900 hover:bg-gray-600 text-sm font-bold text-white hover:cursor-pointer"
+          @click="emitEditTask"
+        >
+          Modifier
+        </button>
+
         <StateSelect label="Status" v-model="task.status" @update:model-value="updateTaskStatus" />
       </div>
     </div>

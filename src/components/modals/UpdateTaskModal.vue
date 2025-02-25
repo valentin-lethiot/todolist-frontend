@@ -75,7 +75,7 @@ const closeConfirmationModal = () => (isConfirmationModalOpen.value = false)
 
 <template>
   <BaseModal v-show="isOpen" :is-loading="isLoading">
-    <div class="flex flex-col w-full h-full">
+    <div class="flex flex-col gap-4 w-full h-full">
       <div class="h-1/8 text-xl font-bold flex justify-between items-start">
         <p>Modifier une tâche</p>
         <button
@@ -86,7 +86,7 @@ const closeConfirmationModal = () => (isConfirmationModalOpen.value = false)
         </button>
       </div>
 
-      <div class="h-8/8 flex flex-col gap-4">
+      <div class="h-6/8 flex flex-col gap-4">
         <Input label="Titre" v-model="taskToUpdate.title" />
         <TextArea label="Description" v-model="taskToUpdate.description" />
       </div>

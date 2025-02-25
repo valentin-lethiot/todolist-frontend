@@ -46,7 +46,7 @@ const emitClose = () => emit('close')
 
 <template>
   <BaseModal v-show="isOpen" :is-loading="isLoading">
-    <div class="flex flex-col w-full h-full">
+    <div class="flex flex-col gap-4 w-full h-full">
       <div class="h-1/8 text-xl font-bold flex justify-between items-start">
         <p>Créer une tâche</p>
         <button

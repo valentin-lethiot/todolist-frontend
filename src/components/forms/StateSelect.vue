@@ -30,7 +30,10 @@ const backgroundColor = computed(() => {
 <template>
   <select
     :value="modelValue"
-    :class="['border text-sm rounded-lg p-1 border-gray-60 text-white', backgroundColor]"
+    :class="[
+      'border text-sm rounded-lg p-1 border-gray-60 text-white hover:cursor-pointer',
+      backgroundColor,
+    ]"
     @change="emitNewValue"
   >
     <option :value="TaskStatus.TODO" selected class="bg-red-500">A faire</option>
