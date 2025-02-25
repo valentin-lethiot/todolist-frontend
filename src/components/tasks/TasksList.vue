@@ -16,6 +16,6 @@ const emitCardClicked = (taskId: string) => {
 
 <template>
   <div v-for="task in tasks" :key="task.id" class="flex flex-col my-1">
-    <TaskCard :task="task" @click="emitCardClicked(task.id!)" />
+    <TaskCard :task="task" @editTask="emitCardClicked(task.id!)" />
   </div>
 </template>

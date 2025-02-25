@@ -16,6 +16,7 @@ const emitNewValue = (event: any) => {
   <div>
     <label class="block mb-1 text-md font-medium text-white">{{ label }}</label>
     <textarea
+      :value="modelValue"
       rows="10"
       class="bg-gray-50 border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 text-white"
       required

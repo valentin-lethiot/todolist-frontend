@@ -48,19 +48,23 @@ onMounted(async () => {
   <main>
     <FullPageLoader v-if="isLoading" />
 
-    <div v-else class="flex flex-col items-center justify-center p-8">
-      <Header />
+    <div v-else class="w-screen h-screen overflow-hidden">
+      <div class="flex flex-col items-center justify-center p-8 h-full">
+        <Header class="h-1/10" />
 
-      <TasksList :tasks="tasks" @cardClicked="openUpdateTaskModal" />
+        <div class="h-9/10 overflow-y-auto">
+          <TasksList :tasks="tasks" @cardClicked="openUpdateTaskModal" />
+        </div>
 
-      <NewTaskButton @click="openCreateTaskModal" />
+        <NewTaskButton @click="openCreateTaskModal" />
 
-      <CreateTaskModal :is-open="isCreateTaskModalOpen" @close="closeCreateTaskModal" />
-      <UpdateTaskModal
-        :task-open="taskOpen"
-        :is-open="isUpdateTaskModalOpen"
-        @close="closeUpdateTaskModal"
-      />
+        <CreateTaskModal :is-open="isCreateTaskModalOpen" @close="closeCreateTaskModal" />
+        <UpdateTaskModal
+          :task-open="taskOpen"
+          :is-open="isUpdateTaskModalOpen"
+          @close="closeUpdateTaskModal"
+        />
+      </div>
     </div>
   </main>
 </template>

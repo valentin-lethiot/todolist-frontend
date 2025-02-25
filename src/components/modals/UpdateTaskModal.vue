@@ -2,50 +2,75 @@
 import BaseModal from './BaseModal.vue'
 import Input from '../forms/Input.vue'
 import TextArea from '../forms/TextArea.vue'
-import { computed, reactive, ref } from 'vue'
+import { computed, reactive, ref, watch } from 'vue'
 import { useTasksStore } from '@/stores/tasks.store'
 import type { Task } from '@/models/tasks.entity'
+import type { Update } from 'vite'
+import type { UpdateTaskInput } from '@/services/inputs/UpdateTask.input'
+import DeletionConfirmationModal from './DeletionConfirmationModal.vue'
 
-const { createTask, deleteTask } = useTasksStore()
+const { updateTask, deleteTask } = useTasksStore()
 
 type Props = {
   isOpen: boolean
   taskOpen: Task | null
 }
-const props = defineProps<Props>()
+const { isOpen, taskOpen } = defineProps<Props>()
 
 const emit = defineEmits(['close'])
 
-const taskToUpdate = reactive({
-  id: () => props.taskOpen?.id || '',
-  title: () => props.taskOpen?.title || '',
-  description: () => props.taskOpen?.description || '',
-  state: () => props.taskOpen?.status || '',
-})
-
 const isLoading = ref(false)
 
+const taskToUpdate = reactive({
+  id: '',
+  title: '',
+  description: '',
+  status: '',
+})
+
+watch(
+  () => taskOpen,
+  (newValue) => {
+    taskToUpdate.id = newValue?.id || ''
+    taskToUpdate.title = newValue?.title || ''
+    taskToUpdate.description = newValue?.description || ''
+    taskToUpdate.status = newValue?.status || ''
+  },
+)
+
 const isUpdateButtonDisabled = computed(() => {
-  return !taskToUpdate.title && !taskToUpdate.description
+  return !taskToUpdate.title || !taskToUpdate.description
 })
 
 const validateForm = async () => {
   if (isUpdateButtonDisabled.value) return
 
   isLoading.value = true
-  // await createTask({ ...taskToUpdate })
+
+  const input: UpdateTaskInput = {
+    title: taskToUpdate.title,
+    description: taskToUpdate.description,
+    status: taskToUpdate.status,
+  }
+  await updateTask(taskToUpdate.id, input)
+
   isLoading.value = false
   emitClose()
 }
 
-const deleteTaskClicked = async () => {
+const deleteTaskConfirmed = async () => {
   isLoading.value = true
-  await deleteTask(taskToUpdate.id())
+  closeConfirmationModal()
+  await deleteTask(taskToUpdate.id)
   isLoading.value = false
   emitClose()
 }
 
 const emitClose = () => emit('close')
+
+const isConfirmationModalOpen = ref(false)
+const showConfirmationModal = () => (isConfirmationModalOpen.value = true)
+const closeConfirmationModal = () => (isConfirmationModalOpen.value = false)
 </script>
 
 <template>
@@ -68,13 +93,13 @@ const emitClose = () => emit('close')
 
       <div class="h-1/8 w-full flex gap-4 items-center justify-end">
         <button
-          @click="deleteTaskClicked"
+          @click="showConfirmationModal"
           class="bg-red-700 hover:bg-red-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer"
         >
           Supprimer
         </button>
         <button
-          class="bg-green-700 hover:bg-green-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer"
+          class="bg-green-700 hover:bg-green-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer disabled:bg-green-600/20 hover:disabled:cursor-not-allowed"
           :disabled="isUpdateButtonDisabled"
           @click="validateForm"
         >
@@ -82,5 +107,11 @@ const emitClose = () => emit('close')
         </button>
       </div>
     </div>
+
+    <DeletionConfirmationModal
+      :is-open="isConfirmationModalOpen"
+      @close="closeConfirmationModal"
+      @confirm="deleteTaskConfirmed"
+    />
   </BaseModal>
 </template>

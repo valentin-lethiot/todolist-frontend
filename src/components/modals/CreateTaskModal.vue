@@ -22,8 +22,13 @@ const taskToCreate = reactive({
 const isLoading = ref(false)
 
 const isCreateButtonDisabled = computed(() => {
-  return !taskToCreate.title && !taskToCreate.description
+  return !taskToCreate.title || !taskToCreate.description
 })
+
+const resetForm = () => {
+  taskToCreate.title = ''
+  taskToCreate.description = ''
+}
 
 const validateForm = async () => {
   if (isCreateButtonDisabled.value) return
@@ -31,6 +36,8 @@ const validateForm = async () => {
   isLoading.value = true
   await createTask({ ...taskToCreate })
   isLoading.value = false
+
+  resetForm()
   emitClose()
 }
 
@@ -63,7 +70,7 @@ const emitClose = () => emit('close')
           Annuler
         </button>
         <button
-          class="bg-green-700 hover:bg-green-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer"
+          class="bg-green-700 hover:bg-green-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer disabled:bg-green-600/20 hover:disabled:cursor-not-allowed"
           :disabled="isCreateButtonDisabled"
           @click="validateForm"
         >
