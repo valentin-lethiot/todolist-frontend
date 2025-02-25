@@ -1,45 +1,20 @@
-# todolist-frontend
+# ✨ Todolist Frontend
 
-This template should help get you started developing with Vue 3 in Vite.
+Une application de gestion de tâches développée en VueJs.
 
-## Recommended IDE Setup
+## 🛠️ Lancement du projet avec Docker
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+```bash
+docker-compose up --build
 ```
 
-### Compile and Hot-Reload for Development
+L'application sera accessible sur `http://localhost:8080`
 
-```sh
-npm run dev
-```
+**⚠️ Il faudra d'abord lancer le container Docker du Backend afin d'avoir accès à la base de données⚠️**
 
-### Type-Check, Compile and Minify for Production
+## 🧪 Lancement des tests unitaires
 
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
+```bash
 npm run test:unit
 ```
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
