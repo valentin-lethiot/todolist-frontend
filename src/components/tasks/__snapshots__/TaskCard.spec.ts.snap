@@ -10,7 +10,7 @@ exports[`TaskCard > render > desktop > should render 1`] = `
           </svg></button></div>
     </div>
     <p class="text-gray-300">Test Description</p>
-    <div class="flex mt-4 justify-between md:justify-end"><button id="editButton" class="md:hidden rounded p-1.5 bg-gray-900 hover:bg-gray-600 text-sm font-bold text-white hover:cursor-pointer"> Modifier </button><select class="border text-sm rounded-lg p-1 border-gray-60 text-white hover:cursor-pointer bg-red-600" label="Status" value="TODO">
+    <div class="flex mt-4 justify-between md:justify-end"><button id="editButton" class="md:hidden rounded p-1.5 bg-gray-900 hover:bg-gray-600 text-sm font-bold text-white hover:cursor-pointer">Modifier</button><select class="border text-sm rounded-lg p-1 border-gray-60 text-white hover:cursor-pointer bg-red-600" label="Status" value="TODO">
         <option selected="" class="bg-red-500" value="TODO">A faire</option>
         <option class="bg-orange-500" value="DOING">En cours</option>
         <option class="bg-green-500" value="DONE">Terminé</option>

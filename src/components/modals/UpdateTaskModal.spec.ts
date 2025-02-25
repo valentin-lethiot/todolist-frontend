@@ -3,7 +3,6 @@ import UpdateTaskModal from './UpdateTaskModal.vue'
 import { mount, VueWrapper } from '@vue/test-utils'
 import { setActivePinia, createPinia } from 'pinia'
 import { Task, TaskStatus } from '@/models/tasks.entity'
-import { useTasksStore } from '@/stores/tasks.store'
 
 describe('UpdateTaskModal', () => {
   let wrapper: VueWrapper

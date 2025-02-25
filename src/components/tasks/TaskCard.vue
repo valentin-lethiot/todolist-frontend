@@ -3,8 +3,10 @@ import { Task, TaskStatus } from '@/models/tasks.entity'
 import StateSelect from '../forms/StateSelect.vue'
 import EditIcon from '../ui/EditIcon.vue'
 import { useTasksStore } from '@/stores/tasks.store'
+import { useI18n } from 'vue-i18n'
 
 const { updateTask } = useTasksStore()
+const { t } = useI18n()
 
 type Props = {
   task: Task
@@ -46,7 +48,7 @@ const updateTaskStatus = (status: TaskStatus) => {
           class="md:hidden rounded p-1.5 bg-gray-900 hover:bg-gray-600 text-sm font-bold text-white hover:cursor-pointer"
           @click="emitEditTask"
         >
-          Modifier
+          {{ t('actions.update') }}
         </button>
 
         <StateSelect label="Status" v-model="task.status" @update:model-value="updateTaskStatus" />

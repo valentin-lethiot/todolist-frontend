@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import NewTaskButton from '@/components/forms/NewTaskButton.vue'
 import FullPageLoader from '@/components/loaders/FullPageLoader.vue'
+import LocaleSwitcher from '@/components/locales/LocaleSwitcher.vue'
 import CreateTaskModal from '@/components/modals/CreateTaskModal.vue'
 import UpdateTaskModal from '@/components/modals/UpdateTaskModal.vue'
 import TasksList from '@/components/tasks/TasksList.vue'
@@ -50,9 +51,11 @@ onMounted(async () => {
       <div class="flex flex-col items-center justify-center p-8 h-full">
         <Header class="h-1/10" />
 
-        <div class="h-9/10 overflow-y-auto">
+        <div class="h-9/10 overflow-y-auto md:w-2/3 w-full">
           <TasksList :tasks="tasks" @cardClicked="openUpdateTaskModal" />
         </div>
+
+        <LocaleSwitcher />
 
         <NewTaskButton @click="openCreateTaskModal" />
 

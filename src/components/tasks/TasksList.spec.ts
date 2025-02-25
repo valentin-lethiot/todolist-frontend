@@ -4,6 +4,7 @@ import { mount, VueWrapper } from '@vue/test-utils'
 import { Task, TaskStatus } from '@/models/tasks.entity'
 import TaskCard from './TaskCard.vue'
 import { createPinia, setActivePinia } from 'pinia'
+import { setupI18n } from '@/helpers/i18n.helper'
 
 describe('TasksList', () => {
   let wrapper: VueWrapper
@@ -17,10 +18,15 @@ describe('TasksList', () => {
     tasks: tasksMock,
   }
 
+  const i18n = setupI18n('fr-FR')
+
   beforeEach(() => {
     setActivePinia(createPinia())
     wrapper = mount(TasksList, {
       props: defaultProps,
+      global: {
+        plugins: [i18n],
+      },
     })
   })
 

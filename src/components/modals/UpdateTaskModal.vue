@@ -5,9 +5,11 @@ import TextArea from '../forms/TextArea.vue'
 import { computed, reactive, ref, watch } from 'vue'
 import { useTasksStore } from '@/stores/tasks.store'
 import type { Task } from '@/models/tasks.entity'
-import type { Update } from 'vite'
 import type { UpdateTaskInput } from '@/services/inputs/UpdateTask.input'
 import DeletionConfirmationModal from './DeletionConfirmationModal.vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const { updateTask, deleteTask } = useTasksStore()
 
@@ -77,7 +79,7 @@ const closeConfirmationModal = () => (isConfirmationModalOpen.value = false)
   <BaseModal v-show="isOpen" :is-loading="isLoading">
     <div class="flex flex-col gap-4 w-full h-full">
       <div class="h-1/8 text-xl font-bold flex justify-between items-start">
-        <p>Modifier une tâche</p>
+        <p>{{ t('updateTask') }}</p>
         <button
           id="closeCross"
           @click="emitClose"
@@ -88,8 +90,8 @@ const closeConfirmationModal = () => (isConfirmationModalOpen.value = false)
       </div>
 
       <div class="h-6/8 flex flex-col gap-4">
-        <Input label="Titre" v-model="taskToUpdate.title" />
-        <TextArea label="Description" v-model="taskToUpdate.description" />
+        <Input :label="t('form.title')" v-model="taskToUpdate.title" />
+        <TextArea :label="t('form.description')" v-model="taskToUpdate.description" />
       </div>
 
       <div class="h-1/8 w-full flex gap-4 items-center justify-end">
@@ -98,7 +100,7 @@ const closeConfirmationModal = () => (isConfirmationModalOpen.value = false)
           @click="showConfirmationModal"
           class="bg-red-700 hover:bg-red-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer"
         >
-          Supprimer
+          {{ t('actions.delete') }}
         </button>
         <button
           id="validateButton"
@@ -106,7 +108,7 @@ const closeConfirmationModal = () => (isConfirmationModalOpen.value = false)
           :disabled="isUpdateButtonDisabled"
           @click="validateForm"
         >
-          Modifier
+          {{ t('actions.update') }}
         </button>
       </div>
     </div>

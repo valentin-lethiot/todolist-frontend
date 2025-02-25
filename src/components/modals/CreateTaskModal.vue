@@ -4,7 +4,9 @@ import Input from '../forms/Input.vue'
 import TextArea from '../forms/TextArea.vue'
 import { computed, reactive, ref } from 'vue'
 import { useTasksStore } from '@/stores/tasks.store'
+import { useI18n } from 'vue-i18n'
 
+const { t } = useI18n()
 const { createTask } = useTasksStore()
 
 type Props = {
@@ -48,7 +50,7 @@ const emitClose = () => emit('close')
   <BaseModal v-show="isOpen" :is-loading="isLoading">
     <div class="flex flex-col gap-4 w-full h-full">
       <div class="h-1/8 text-xl font-bold flex justify-between items-start">
-        <p>Créer une tâche</p>
+        <p>{{ t('createTask') }}</p>
         <button
           id="closeCross"
           @click="emitClose"
@@ -59,8 +61,8 @@ const emitClose = () => emit('close')
       </div>
 
       <div class="h-6/8 flex flex-col gap-4">
-        <Input label="Titre" v-model="taskToCreate.title" />
-        <TextArea label="Description" v-model="taskToCreate.description" />
+        <Input :label="t('form.title')" v-model="taskToCreate.title" />
+        <TextArea :label="t('form.description')" v-model="taskToCreate.description" />
       </div>
 
       <div class="h-1/8 w-full flex gap-4 items-center justify-end">
@@ -69,7 +71,7 @@ const emitClose = () => emit('close')
           @click="emitClose"
           class="bg-gray-700 hover:bg-gray-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer"
         >
-          Annuler
+          {{ t('actions.cancel') }}
         </button>
         <button
           id="validateButton"
@@ -77,7 +79,7 @@ const emitClose = () => emit('close')
           :disabled="isCreateButtonDisabled"
           @click="validateForm"
         >
-          Créer
+          {{ t('actions.create') }}
         </button>
       </div>
     </div>

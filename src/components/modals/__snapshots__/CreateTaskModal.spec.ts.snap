@@ -12,7 +12,7 @@ exports[`CreateTaskModal > render > should render the modal 1`] = `
           <div><label class="block mb-1 text-md font-medium text-white">Titre</label><input type="text" class="bg-gray-50 border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 text-white" required="" value=""></div>
           <div data-v-993744c5=""><label data-v-993744c5="" class="block mb-1 text-md font-medium text-white">Description</label><textarea data-v-993744c5="" rows="10" class="bg-gray-50 border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 text-white" required="" value=""></textarea></div>
         </div>
-        <div class="h-1/8 w-full flex gap-4 items-center justify-end"><button id="cancelButton" class="bg-gray-700 hover:bg-gray-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer"> Annuler </button><button id="validateButton" class="bg-green-700 hover:bg-green-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer disabled:bg-green-600/20 hover:disabled:cursor-not-allowed" disabled=""> Créer </button></div>
+        <div class="h-1/8 w-full flex gap-4 items-center justify-end"><button id="cancelButton" class="bg-gray-700 hover:bg-gray-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer">Annuler</button><button id="validateButton" class="bg-green-700 hover:bg-green-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer disabled:bg-green-600/20 hover:disabled:cursor-not-allowed" disabled="">Créer</button></div>
       </div>
     </div>
   </div>

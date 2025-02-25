@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { TaskStatus } from '@/models/tasks.entity'
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 type Props = {
   modelValue: string
@@ -36,8 +39,8 @@ const backgroundColor = computed(() => {
     ]"
     @change="emitNewValue"
   >
-    <option :value="TaskStatus.TODO" selected class="bg-red-500">A faire</option>
-    <option :value="TaskStatus.DOING" class="bg-orange-500">En cours</option>
-    <option :value="TaskStatus.DONE" class="bg-green-500">Terminé</option>
+    <option :value="TaskStatus.TODO" selected class="bg-red-500">{{ t('status.todo') }}</option>
+    <option :value="TaskStatus.DOING" class="bg-orange-500">{{ t('status.doing') }}</option>
+    <option :value="TaskStatus.DONE" class="bg-green-500">{{ t('status.done') }}</option>
   </select>
 </template>

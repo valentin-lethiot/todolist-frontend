@@ -1,0 +1,21 @@
+{
+  "header": "Qu'allons-nous faire aujourd'hui ?",
+  "createTask": "Créer une tâche",
+  "updateTask": "Modifier une tâche",
+  "sureToDelete": "Êtes-vous sûr de vouloir supprimer cette tâche ?",
+  "actions": {
+    "create": "Créer",
+    "update": "Modifier",
+    "delete": "Supprimer",
+    "cancel": "Annuler"
+  },
+  "status": {
+    "todo": "A faire",
+    "doing": "En cours",
+    "done": "Terminé"
+  },
+  "form": {
+    "title": "Titre",
+    "description": "Description"
+  }
+}

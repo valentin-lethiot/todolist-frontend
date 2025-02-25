@@ -12,16 +12,16 @@ exports[`UpdateTaskModal > render > should render the modal 1`] = `
           <div><label class="block mb-1 text-md font-medium text-white">Titre</label><input type="text" class="bg-gray-50 border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 text-white" required="" value=""></div>
           <div data-v-993744c5=""><label data-v-993744c5="" class="block mb-1 text-md font-medium text-white">Description</label><textarea data-v-993744c5="" rows="10" class="bg-gray-50 border text-sm rounded-lg block w-full p-2 bg-gray-700 border-gray-600 text-white" required="" value=""></textarea></div>
         </div>
-        <div class="h-1/8 w-full flex gap-4 items-center justify-end"><button id="deleteButton" class="bg-red-700 hover:bg-red-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer"> Supprimer </button><button id="validateButton" class="bg-green-700 hover:bg-green-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer disabled:bg-green-600/20 hover:disabled:cursor-not-allowed" disabled=""> Modifier </button></div>
+        <div class="h-1/8 w-full flex gap-4 items-center justify-end"><button id="deleteButton" class="bg-red-700 hover:bg-red-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer">Supprimer</button><button id="validateButton" class="bg-green-700 hover:bg-green-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer disabled:bg-green-600/20 hover:disabled:cursor-not-allowed" disabled="">Modifier</button></div>
       </div>
       <div class="absolute w-screen h-screen top-0 left-0 bg-gray-900/40 z-60" style="display: none;">
         <div class="w-full h-full flex flex-col justify-center items-center p-8">
           <div class="bg-gray-800 rounded-lg p-4 shadow-xl w-1/2">
             <div class="flex flex-col w-full h-full gap-4">
               <div class="h-1/2 text-xl font-bold flex justify-between items-start">
-                <p>Voulez-vous vraiment supprimer cette tâche ?</p>
+                <p>Êtes-vous sûr de vouloir supprimer cette tâche ?</p>
               </div>
-              <div class="h-1/2 w-full flex gap-4 items-center justify-end"><button id="cancelButton" class="bg-gray-700 hover:bg-gray-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer"> Annuler </button><button id="confirmButton" class="bg-red-700 hover:bg-red-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer"> Supprimer </button></div>
+              <div class="h-1/2 w-full flex gap-4 items-center justify-end"><button id="cancelButton" class="bg-gray-700 hover:bg-gray-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer">Annuler</button><button id="confirmButton" class="bg-red-700 hover:bg-red-600 rounded-lg text-lg font-bold p-2 text-white w-1/2 hover:cursor-pointer">Supprimer</button></div>
             </div>
           </div>
         </div>
