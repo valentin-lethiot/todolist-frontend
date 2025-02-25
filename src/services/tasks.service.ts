@@ -19,7 +19,16 @@ export const tasksService = {
       },
     }).then((response) => response.json())
 
-    console.log(response)
+    if (response.code !== 201) return ''
+    return response.data
+  },
+
+  async deleteTask(taskId: string) {
+    console.log(taskId)
+    const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
+      method: 'DELETE',
+    }).then((response) => response.json())
+
     if (response.code !== 201) return ''
     return response.data
   },

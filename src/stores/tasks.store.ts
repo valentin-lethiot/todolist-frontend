@@ -11,6 +11,8 @@ export const useTasksStore = defineStore('tasks', () => {
     return _tasks.value
   })
 
+  const getTaskById = (taskId: string) => _tasks.value.find((task) => task.id === taskId) || null
+
   const fetchAllTasks = async () => {
     const response = await tasksService.getTasks()
     _tasks.value = response.map(
@@ -24,5 +26,11 @@ export const useTasksStore = defineStore('tasks', () => {
     _tasks.value.push(new Task(task.title, task.description, TaskStatus.TODO, response.id))
   }
 
-  return { tasks, fetchAllTasks, createTask }
+  const deleteTask = async (taskId: string) => {
+    const response = await tasksService.deleteTask(taskId)
+    if (response === '') return
+    _tasks.value = _tasks.value.filter((task) => task.id !== taskId)
+  }
+
+  return { tasks, fetchAllTasks, createTask, getTaskById, deleteTask }
 })

@@ -3,16 +3,18 @@ import BaseInput from '@/components/forms/Input.vue'
 import NewTaskButton from '@/components/forms/NewTaskButton.vue'
 import FullPageLoader from '@/components/loaders/FullPageLoader.vue'
 import CreateTaskModal from '@/components/modals/CreateTaskModal.vue'
+import UpdateTaskModal from '@/components/modals/UpdateTaskModal.vue'
 import TaskCard from '@/components/tasks/TaskCard.vue'
 import TasksList from '@/components/tasks/TasksList.vue'
 import Header from '@/components/ui/Header.vue'
+import type { Task } from '@/models/tasks.entity'
 import { useTasksStore } from '@/stores/tasks.store'
 import { storeToRefs } from 'pinia'
 import { onMounted, ref } from 'vue'
 
 const tasksStore = useTasksStore()
 const { tasks } = storeToRefs(tasksStore)
-const { fetchAllTasks } = tasksStore
+const { fetchAllTasks, getTaskById } = tasksStore
 
 const isLoading = ref(false)
 
@@ -22,6 +24,17 @@ const openCreateTaskModal = () => {
 }
 const closeCreateTaskModal = () => {
   isCreateTaskModalOpen.value = false
+}
+
+const isUpdateTaskModalOpen = ref(false)
+const taskOpen = ref<Task | null>(null)
+const openUpdateTaskModal = (taskId: string) => {
+  taskOpen.value = tasksStore.getTaskById(taskId)
+  isUpdateTaskModalOpen.value = true
+}
+const closeUpdateTaskModal = () => {
+  taskOpen.value = null
+  isUpdateTaskModalOpen.value = false
 }
 
 onMounted(async () => {
@@ -38,11 +51,16 @@ onMounted(async () => {
     <div v-else class="flex flex-col items-center justify-center p-8">
       <Header />
 
-      <TasksList :tasks="tasks" />
+      <TasksList :tasks="tasks" @cardClicked="openUpdateTaskModal" />
 
       <NewTaskButton @click="openCreateTaskModal" />
 
       <CreateTaskModal :is-open="isCreateTaskModalOpen" @close="closeCreateTaskModal" />
+      <UpdateTaskModal
+        :task-open="taskOpen"
+        :is-open="isUpdateTaskModalOpen"
+        @close="closeUpdateTaskModal"
+      />
     </div>
   </main>
 </template>
